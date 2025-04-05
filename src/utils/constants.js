@@ -1,12 +1,12 @@
-const typesQuestions = {
+export const typesQuestions = {
     1: 'Opción Múltiple',
     2: 'Seleccion Múltiple',
     3: 'Respuesta abierta'
 }
 
-let questions = [
-    {   
-        type: 1,
+export let questions = [
+    {   id:100,
+        type: typesQuestions[1],
         question: '¿Qué tan satisfecho estás con nuestro servicio general?',
         options: [
           'Muy satisfecho',
@@ -17,7 +17,8 @@ let questions = [
         ]
       }, 
       {
-        type: 1,
+        id:101,
+        type: typesQuestions[1],
         question: '¿Con qué frecuencia utilizas nuestros servicios?',
         options: [
           'Diariamente',
@@ -27,7 +28,8 @@ let questions = [
         ]
       },
       {
-        type: 2,
+        id:102,
+        type: typesQuestions[2],
         question: '¿Qué aspectos te parecen más útiles de nuestro servicio?',
         options: [
           'Facilidad de uso',
@@ -38,7 +40,8 @@ let questions = [
         ]
       },
       {
-        type: 2,
+        id:103,
+        type:  typesQuestions[2],
         question: '¿Dónde sueles interactuar con nosotros?',
         options: [
           'Sitio web',
@@ -49,15 +52,18 @@ let questions = [
         ]
       },
       {
-        type: 3,
+        id:104,
+        type:  typesQuestions[3],
         question: '¿Qué mejorarías de nuestro servicio?'
       },
       {
-        type: 3,
+        id:105,
+        type: typesQuestions[3],
         question: '¿Qué fue lo que más te gustó de tu experiencia reciente?'
       },
       {
-        type: 1,
+        id:106,
+        type: typesQuestions[1],
         question: '¿Qué tan fácil fue navegar por nuestra plataforma?',
         options: [
           'Muy fácil',
@@ -68,7 +74,8 @@ let questions = [
         ]
       },
       {
-        type: 1,
+        id:107,
+        type:typesQuestions[1],
         question: '¿Recomendarías nuestro servicio a otras personas?',
         options: [
           'Definitivamente sí',
@@ -79,7 +86,8 @@ let questions = [
         ]
       },
       {
-        type: 2,
+        id:108,
+        type: typesQuestions[2],
         question: '¿Qué canales prefieres para recibir actualizaciones o promociones?',
         options: [
           'Correo electrónico',
@@ -90,7 +98,8 @@ let questions = [
         ]
       },
       {
-        type: 1,
+        id:109,
+        type: typesQuestions[1],
         question: '¿Tu problema fue resuelto en tu última interacción con nosotros?',
         options: [
           'Sí, completamente',
@@ -99,4 +108,3 @@ let questions = [
         ]
       }  
 ]
-

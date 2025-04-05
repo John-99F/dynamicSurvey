@@ -1,7 +1,12 @@
+import {Link } from 'react-router-dom'
+
 function DashBoard() {
+
     return (
         <div>
-            Hola soy un react 
+            <button>
+                <Link to={"/questions"}>Navegar a la encuesta</Link>
+            </button>
         </div>
     )
 }
