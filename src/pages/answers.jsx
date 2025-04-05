@@ -1,7 +1,13 @@
+import AnswersTable from "../components/answersTable"
+import { respuestas, questions } from "../utils/constants";
+
 function Answers() {
     return (
         <div>
-            Hola soy las respuestas
+            <AnswersTable 
+                questions={questions}
+                 respuestas={respuestas}
+            /> 
         </div>
     )
 }

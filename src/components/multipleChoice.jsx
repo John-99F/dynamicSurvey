@@ -1,6 +1,5 @@
 import { useState } from "react"
-
-function MultipleChoice({ question, options, }) {
+function MultipleChoice({ question, options, show }) {
     const [checkbox, setCheck] = useState(
         options.length > 0 ? options.map(() => false) : []
     );
@@ -11,31 +10,30 @@ function MultipleChoice({ question, options, }) {
         setCheck(updated);
         console.log(updated);
     };
-    return (
+    return show ? (
         <div>
             <label>
                 {question}
             </label>
             <br />
-            {
-                options.length > 0 ? (
-                    options.map((option, index) => (
-                        <div key={index}>
-                            <label htmlFor={`option-${index}`}>{option}</label>
-                            <input
-                                type="radio"
-                                name="option-multiple-selection"
-                                checked={checkbox[index]}
-                                onChange={handleCheck(index)}
-                            />
-                        </div>
-                    ))
-                ) : (
-                    <p key={id}>2</p>
-                )
-            }
+            {options.length > 0 ? (
+                options.map((option, index) => (
+                    <div key={`option-${index}`} className="option-item">
+                        <label htmlFor={`option-${index}`}>{option}</label>
+                        <input
+                            id={`option-${index}`}
+                            type="radio"
+                            name="option-multiple-selection"
+                            checked={checkbox[index]}
+                            onChange={handleCheck(index)}
+                        />
+                    </div>
+                ))
+            ) : (
+                <p key={`option-show`}></p>
+            )}
         </div>
-    )
+    ) : null
 }
 
 export default MultipleChoice

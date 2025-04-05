@@ -1,12 +1,12 @@
 import { useState } from "react"
 
-function  OpenResponse({question}) {
+function  OpenResponse({question, show}) {
     const [answer, setAnswer] = useState("")
     const handleAnswer = (e) => {
         setAnswer(e)
         console.log(e)
     }
-    return (
+    return show ? (
         <div>
             <label> {question}</label>
             <br />
@@ -16,7 +16,7 @@ function  OpenResponse({question}) {
                 onChange={(e) => handleAnswer(e.target.value)}   
             />
         </div>
-    ) 
+    ) : null
 }
 
 export default OpenResponse

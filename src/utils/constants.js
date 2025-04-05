@@ -108,3 +108,16 @@ export let questions = [
         ]
       }  
 ]
+
+export const respuestas = [
+  { id: 100, respuesta: 'Muy satisfecho' },
+  { id: 101, respuesta: 'Semanalmente' },
+  { id: 102, respuesta: ['Facilidad de uso', 'Atención al cliente'] },
+  { id: 103, respuesta: ['Aplicación móvil'] },
+  { id: 104, respuesta: 'Mejorar tiempos de respuesta' },
+  { id: 105, respuesta: 'La amabilidad del equipo' },
+  { id: 106, respuesta: 'Fácil' },
+  { id: 107, respuesta: 'Definitivamente sí' },
+  { id: 108, respuesta: ['Correo electrónico', 'Redes sociales'] },
+  { id: 109, respuesta: 'Sí, completamente' },
+];
