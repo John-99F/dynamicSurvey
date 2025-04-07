@@ -1,15 +1,17 @@
 import { useState } from "react"
 import { questions, typesQuestions } from '../utils/constants'
-import { Link } from 'react-router-dom'
-
 import MultipleSelection from '../components/multipleSelection'
 import OpenResponse from '../components/openResponse'
 import MultipleChoice from '../components/multipleChoice'
+import { getAnswers } from "../utils/answersUtils"
+import { useNavigate } from "react-router-dom"
 import "../styles/question.scss";
+
 function Questions() {
     const [listQuestions, setShowQuestions] = useState(
         questions.length > 0 ? questions.map((_, index) => index == 0 ? true : false) : []
     )
+    const navigate = useNavigate();
 
     const handleCheck = (index) => (e) => {
         const listQuestionsUpdated = listQuestions.map((_, position) =>
@@ -31,6 +33,21 @@ function Questions() {
             handleCheck(currentIndex - 1)();
         }
     };
+
+    const handleFinish = () => {
+        const respuestas = getAnswers(); // obtiene las respuestas guardadas
+        const preguntasFaltantes = questions.filter(q => {
+          const resp = respuestas.find(r => r.id === q.id);
+          return !resp || !resp.answers || (Array.isArray(resp.answers) && resp.answers.length === 0);
+        });
+    
+        if (preguntasFaltantes.length > 0) {
+          alert("Por favor, responde todas las preguntas antes de continuar.");
+          return;
+        }
+    
+        navigate("/answers");
+      };
     return (
         <div className="question-container">
             {questions.map((element, index) => {
@@ -68,9 +85,12 @@ function Questions() {
                 </button>
                 {
                     listQuestions.findIndex(q => q) === questions.length - 1 ?
-                        <Link to="/answers" className="submit-button">
+                        <button
+                            onClick={handleFinish}
+                            className="navigation-button"
+                        >
                             Terminar
-                        </Link>
+                        </button>
                         :
                         <button
                             onClick={goToNextQuestion}
