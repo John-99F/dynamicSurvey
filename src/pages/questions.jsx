@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { questions, typesQuestions } from '../utils/constants'
+import {Link } from 'react-router-dom'
+
 import MultipleSelection from '../components/multipleSelection'
 import OpenResponse from '../components/openResponse'
 import MultipleChoice from '../components/multipleChoice'
@@ -34,6 +36,7 @@ function Questions() {
                 return element.type == typesQuestions[1] ?
                     <MultipleChoice
                         key={element.id}
+                        id={element.id}
                         question={element.question}
                         options={element.options}
                         show={listQuestions[index]}
@@ -41,6 +44,7 @@ function Questions() {
                     : element.type == typesQuestions[2] ?
                         <MultipleSelection
                             key={element.id}
+                            id={element.id}
                             show={listQuestions[index]}
                             question={element.question}
                             options={element.options}
@@ -48,23 +52,31 @@ function Questions() {
                         : element.type == typesQuestions[3] ?
                             <OpenResponse
                                 key={element.id}
+                                id={element.id}
                                 question={element.question}
                                 show={listQuestions[index]}
                             /> : <div key={element.id}></div>
             })}
             <div style={{ marginTop: '20px' }}>
-                <button 
+                <button
                     onClick={goToPreviousQuestion}
                     disabled={listQuestions.findIndex(q => q) === 0}
                 >
                     Anterior
                 </button>
-                <button 
-                    onClick={goToNextQuestion} 
-                    disabled={listQuestions.findIndex(q => q) === questions.length - 1}
-                >
-                    Siguiente
-                </button>
+                {
+                    listQuestions.findIndex(q => q) === questions.length - 1 ?
+                        <button
+                        >
+                           <Link to={"/answers"}>terminar</Link> 
+                        </button>
+                        :
+                        <button
+                            onClick={goToNextQuestion}
+                        >
+                            Siguiente
+                        </button>
+                }
             </div>
         </div>
     )

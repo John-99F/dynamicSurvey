@@ -1,11 +1,13 @@
-function AnswersTable({questions, respuestas}) {
+import { getAnswers } from "../utils/answersUtils";
+
+function AnswersTable({questions}) {
     const obtenerRespuesta = (id) => {
-        const resp = respuestas.find((r) => r.id === id);
+        const resp = getAnswers().find((r) => r.id === id);
         if (!resp) return 'Sin respuesta';
-        if (Array.isArray(resp.respuesta)) {
-          return resp.respuesta.join(', ');
+        if (Array.isArray(resp.answers)) {
+          return resp.answers.join(', ');
         }
-        return resp.respuesta;
+        return resp.answers;
       };
     
       return (

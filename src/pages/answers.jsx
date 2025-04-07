@@ -6,7 +6,6 @@ function Answers() {
         <div>
             <AnswersTable 
                 questions={questions}
-                 respuestas={respuestas}
             /> 
         </div>
     )

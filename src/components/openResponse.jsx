@@ -1,9 +1,10 @@
 import { useState } from "react"
-
-function  OpenResponse({question, show}) {
-    const [answer, setAnswer] = useState("")
+import { setAnswers } from "../utils/answersUtils"
+function  OpenResponse({id, question, show}) {
+    const [answer, saveAnswer] = useState("")
     const handleAnswer = (e) => {
-        setAnswer(e)
+        saveAnswer(e)
+        setAnswers({questionId: id, answers: e})
         console.log(e)
     }
     return show ? (

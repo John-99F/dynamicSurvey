@@ -1,6 +1,6 @@
 import { useState } from "react"
-
-function MultipleSelection({question, options , show}) {
+import { setAnswers } from "../utils/answersUtils";
+function MultipleSelection({id, question, options , show}) {
     const [checkbox, setCheck] = useState(
         options.length > 0 ? options.map(() => false) : []
     );
@@ -9,8 +9,14 @@ function MultipleSelection({question, options , show}) {
         const updated = [...checkbox];
         updated[index] = e.target.checked;
         setCheck(updated);
+        const saveOptions = options.filter((element, index) => updated[index]);
+        saveAnswers({answers: saveOptions})
         console.log(updated);
     };
+
+     const saveAnswers = ({answers}) => {
+        setAnswers( {questionId: id,answers: answers})
+    }
     return show ? (
         <div>
             <label>

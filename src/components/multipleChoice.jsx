@@ -1,5 +1,6 @@
 import { useState } from "react"
-function MultipleChoice({ question, options, show }) {
+import { setAnswers } from "../utils/answersUtils";
+function MultipleChoice({ id, question, options, show }) {
     const [checkbox, setCheck] = useState(
         options.length > 0 ? options.map(() => false) : []
     );
@@ -8,8 +9,14 @@ function MultipleChoice({ question, options, show }) {
         const updated = checkbox.map((_, position) =>
             position === index ? e.target.checked : false);
         setCheck(updated);
+        saveAnswers({answers: options[index]})
         console.log(updated);
     };
+
+    const saveAnswers = ({answers}) => {
+        setAnswers( {questionId: id,answers: answers})
+    }
+
     return show ? (
         <div>
             <label>
