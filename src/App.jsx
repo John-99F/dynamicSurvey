@@ -4,7 +4,7 @@ import Questions  from "./pages/questions"
 import Answers from "./pages/answers"
 function App() {
   return (
-      <BrowserRouter>
+      <BrowserRouter basename="/dynamicSurvey">
         <Routes>
           <Route path="/" element= {<DashBoard/>}/>
           <Route path="/questions" element= {<Questions/>}/>
