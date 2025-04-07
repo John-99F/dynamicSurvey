@@ -8,11 +8,13 @@ function  OpenResponse({id, question, show}) {
         console.log(e)
     }
     return show ? (
-        <div>
-            <label> {question}</label>
+        <div >
+        <label className="question-text" >
+                  {question}</label>
             <br />
-            <input 
+            <textarea
                 type="text"
+                className="input-text"
                 value={answer}
                 onChange={(e) => handleAnswer(e.target.value)}   
             />

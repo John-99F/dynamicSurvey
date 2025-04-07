@@ -1,0 +1,56 @@
+@import './variables';
+
+.answers-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  border: 3px solid $border-color;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.answers-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: $question-text-color;
+  text-align: center;
+}
+
+.answers-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1rem;
+  border: 3px solid $border-color;
+
+  thead {
+    background-color: $background-button-color;
+    color: #fff;
+
+    th {
+      padding: 1rem;
+      text-align: left;
+      border: 3px solid $border-color;
+
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: $row-bg-color-even;
+      }
+  
+      &:hover {
+        background-color: $row-hover-bg-color;
+      }
+  
+      td {
+        padding: 1rem;
+        border-bottom: 1px solid $table-border-color;
+        color: $question-text-color;
+      }
+    }
+  }
+}

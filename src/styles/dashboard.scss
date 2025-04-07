@@ -1,0 +1,18 @@
+@import './variables';
+@import './mixins';
+
+.dashboard {
+  @include container-style;
+
+  h1 {
+    @include heading-style;
+  }
+
+  p {
+    @include paragraph-style;
+  }
+
+  .dashboard-button {
+    @include dashboard-button-style;
+  }
+}

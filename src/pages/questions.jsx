@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { questions, typesQuestions } from '../utils/constants'
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import MultipleSelection from '../components/multipleSelection'
 import OpenResponse from '../components/openResponse'
 import MultipleChoice from '../components/multipleChoice'
+import "../styles/question.scss";
 function Questions() {
     const [listQuestions, setShowQuestions] = useState(
         questions.length > 0 ? questions.map((_, index) => index == 0 ? true : false) : []
@@ -31,7 +32,7 @@ function Questions() {
         }
     };
     return (
-        <div className="container-questions">
+        <div className="question-container">
             {questions.map((element, index) => {
                 return element.type == typesQuestions[1] ?
                     <MultipleChoice
@@ -60,19 +61,20 @@ function Questions() {
             <div style={{ marginTop: '20px' }}>
                 <button
                     onClick={goToPreviousQuestion}
+                    className="navigation-button"
                     disabled={listQuestions.findIndex(q => q) === 0}
                 >
                     Anterior
                 </button>
                 {
                     listQuestions.findIndex(q => q) === questions.length - 1 ?
-                        <button
-                        >
-                           <Link to={"/answers"}>terminar</Link> 
-                        </button>
+                        <Link to="/answers" className="submit-button">
+                            Terminar
+                        </Link>
                         :
                         <button
                             onClick={goToNextQuestion}
+                            className="navigation-button"
                         >
                             Siguiente
                         </button>

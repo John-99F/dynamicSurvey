@@ -19,18 +19,19 @@ function MultipleSelection({id, question, options , show}) {
     }
     return show ? (
         <div>
-            <label>
-                {question}
+            <label className="question-text" >
+            {question}
             </label>
             <br />
             {
                 options.length > 0  ? (
                     options.map((option, index) => (
-                        <div key={index}>
-                            <label htmlFor={`option-${index}`}>{option}</label>
+                        <div key={index} className="options">
+                            <label 
+                                className="answer-label"
+                            >{option}</label>
                             <input
                                 type="checkbox"
-                                name="option-multiple-selection"
                                 checked={checkbox[index]}
                                 onChange={handleCheck(index)}
                             />

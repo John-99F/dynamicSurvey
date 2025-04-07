@@ -1,6 +1,6 @@
 import AnswersTable from "../components/answersTable"
-import { respuestas, questions } from "../utils/constants";
-
+import { questions } from "../utils/constants";
+import "../styles/answers.scss";
 function Answers() {
     return (
         <div>

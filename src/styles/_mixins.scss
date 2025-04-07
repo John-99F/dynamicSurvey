@@ -1,0 +1,117 @@
+
+@mixin box-style($padding: 3rem, $radius: 2rem) {
+    padding: $padding;
+    border-radius: $radius;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  @mixin flex-center($gap: 5rem) {
+    display: flex;
+    align-items: center;
+    gap: $gap;
+  }
+  
+  @mixin button-style(
+    $bg: $background-button-color,
+    $color: white,
+    $hover-bg: $background-button-hover-color
+  ) {
+    background-color: $bg;
+    color: $color;
+    padding: 0.75rem 1.5rem;
+    border: 3px solid $border-color;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  
+    &:hover {
+      background-color: $hover-bg;
+      color: $color;
+    }
+  
+    &:disabled {
+      background-color: #c5c5c5;
+      cursor: not-allowed;
+    }
+  }
+
+  @mixin input-style {
+    width: 100%;
+    max-width: 600px;
+    height: 100px;
+    padding: 1rem;
+    border: 2px solid $border-color;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    font-family: inherit;
+    line-height: 1.5;
+    background-color: #fff;
+    color: $question-text-color;
+    vertical-align: top;
+    white-space: normal;
+    overflow: visible;
+    text-align: left;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    &::placeholder {
+      color: #999;
+    }
+  
+    &:focus {
+      border-color: $background-button-color;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+    }
+  }
+  @mixin container-style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    background-color: $background-question-container-color;
+    color: $question-text-color;
+    border: 3px solid $border-color;
+    border-radius: 3rem;
+    min-height: 100%;
+    text-align: center;
+  }
+  
+  @mixin heading-style {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: $background-button-color;
+  }
+  
+  @mixin paragraph-style {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  @mixin dashboard-button-style {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: $background-button-color;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  
+    &:hover {
+      background-color: $background-button-hover-color;
+    }
+  }
+  
